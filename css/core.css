@@ -1,19 +1,32 @@
 :root {
-	/*colors*/
-	--red: #9a0000; /*rgba(154, 0, 0, 1)*/
-	--yellow: #ffcc00; /*rgba(255, 204, 0, 1)*/
-	--blue: #006699; /*rgba(0, 102, 153, 1)*/
-	--bluegreen: #006969; /*rgba(0, 105, 105, 1)*/
+  /*--red: #9a0000;*/
+	--red: #8F0000; /*panatone:"7621 C" rgb(rgb(143,0,0)), cmyk(0,100,100,44), hsl(0,100%,28%)*/
+	--yellow: #ffcc00;/*rgb(255,204,0), hsl(48,100%,50%), cmyk(0,20,100,0) */
+	/*--yellow: #FFD700;/*panatone "Yellow 012 C" rgb(255,215,0), hsl(50.4,100%,50%), cmyk(0,16,100,0) */
+	--blue: #006699; /*rgb(0,102,153), hsl(200,100%,30%), cmyk(100,33,0,40) */
+	/*--blue: #00629B; panatone "3015 C", rgb(0,98,155), hsl(202.1,100%,30.4%), cmyk(100,37,0,39)*/
+	--bluegreen: #006969; /*rgb(0,105,105), hsl(180,100%,20.6%), cmyk(100,0,0,59) */
+	/*--bluegreen: #006666; close to "7715 C" rgb(0,102,102), hsl(180,100%,20%), cmyk(100,0,0,60)*/
 	--black: #000000;
-	--warmblack: #191918; /*rgba(25, 25, 24, 1)*/
-	--gray: #484848; /*rgba(72, 72, 72, 1)*/
-	--lightgray: #888888; /*rgba(136, 136, 136, 1)*/
-	--warmgray: #4b4b44; /*rgba(75, 75, 68, 1)*/
-	--warmlightgray: #656560; /*rgba(101, 101, 96, 1)*/
+	--warmblack: #191918;/*panatone "Black 6 C" rgb(25,25,24), hsl(60,2%,9.6%), cmyk(0,0,4,90)*/
+	/*--warmblack: #1A1A19; rgb(26,26,25),hsl(60,2%,10%),cmyk(0,0,4,90) */
+	--gray: #484848;
+	--lightgray: #888888;
+	--warmgray: #4b4b44;
+	--warmlightgray: #656560;
 	--white: #ffffff;
-	--warmwhite: #fcfbe3; /*rgba(252, 251, 227, 1)*/
-	--veilwarmwhite: rgba(252, 251, 227, 0.4);
+	--warmwhite: #fcfbe3; /* rgb(252,251,227),hsl(57.6,80.6%,93.9%),cmyk(0,0,10,1)*/
+	/*--warmwhite: #fcfbe3;  rgb(252,252,227),hsl(60,81%,94%),cmyk(0,0,10,1)*/
+	--warmlightwhite:#fdfdf3; /* panatone sort of "P 1-9 C"rgb(253,253,243),hsl(60,71.4%,97.3%),cmyk(0,0,4,1)*/
+	--warmlightwhiteveil: rgba(253,253,243,0.8);
+	--veilwarmwhite: rgba(252, 251, 227, 0.8);
 	--veilwarmblack: rgba(25, 25, 24, 0.4);
+	--richblack: #010203;
+	--richgray1: #2a2a2b;
+	--richgray2: #4f4f50;
+	--richgray3: #777878;
+	--richgray4: #a2a3a3;
+	--richgray5: #d0d0d0;
 	/*numbers :: set these to random numbers in code*/
 	--n0: 0;
 	--n1: 1;
@@ -42,9 +55,9 @@
 	--oldbook: 'Palatino Linotype', 'Book Antiqua', Palatino, 'American Typewriter', 'Times New Roman', serif;
 	/*function*/
 	--daycolor: var(--warmblack);
-	--daybg: var(--warmwhite);
-	--dayveilbg: var(--veilwarmwhite);
-	--nightcolor: var(--warmwhite);
+	--daybg: var(--warmlightwhite);
+	--dayveilbg: var(--warmlightwhiteveil);
+	--nightcolor: var(--warmlightwhite);
 	--nightbg: var(--warmblack);
 	--nightveilbg: var(--veilwarmblack);
 	--corecolor: var(--nightcolor);
@@ -151,7 +164,7 @@ body {
 	/*background-color: var(--corebg);*/
   	color: var(--corecolor);
 	top:0; left:0;
-	width:100%; height: 100%;
+	/*width:100%; height: 100%;*/
 	min-width:100%;
 	min-height:100%;
 	text-align:left;
@@ -250,18 +263,20 @@ svg *{
 #mainflex {
 	display: flex;
   	justify-content: center;
-  	width: 90%;
-  	margin-left: 10%;
+  	width: 100%;
+  	margin-left: 0%;
 }
 main {
-	position: relative;
+	/*position: relative;*/
 	width:100%;
 	padding: 1em;
 	transition: opacity 1s ease-in-out;
 	border: 0px;
 }
 main.narrow {
-	width: 90%; max-width: 600px;
+	width: 80%; 
+	max-width: 80%;
+	max-width: 600px;
 }
 main.wide {
 	width: 90%; max-width: 900px;
@@ -302,6 +317,7 @@ blockquote {
 	max-width: 400px;
 	max-width: 32%;
 	min-width: 300px;
+	padding: 1%;
 }
 .gallery > div.swatch {
 	width: 10em;
@@ -367,8 +383,8 @@ h2 {
 	font-family: var(--monospace_zeroslash);
 	font-weight: var(--corefontweight);
 	font-style: italic;
-	font-size: 1.2em;
-	line-height: 1.2em;
+	font-size: 1em;
+	line-height: 1em;
 }
 body main > header > h2 {
 	font-size: 1.3em;
@@ -682,12 +698,17 @@ input[type="checkbox"] {
     stroke-dashoffset: 0;
   }
 }
+audio {
+	padding-top:1em;
+	padding-bottom:1em;
+	border:var(--warmblack);
 }
+audio:hover {transform: scale(1.1);filter: drop-shadow(2px 3px 3px #333);}
 figure {
-	margin-bottom: 3.0em;
+	display: block; 
+	max-width: 80%;
+	margin-bottom: 1.0em;
 	text-align:left;
-	border-top: solid 2px #cccccc;
-	border-bottom: solid 2px #cccccc;
 	padding-top:1em;
 	padding-bottom:1em;
 }
@@ -717,6 +738,7 @@ div.vimeowrapper16x9 {
 	/*max-width : 1280px;*/
 	padding-bottom: 56.25%; /* 16:9 */
 	padding-top: 25px;
+	padding-top: 48px;
 	height: 0;
 }
 div.vimeowrapper16x9 iframe {
