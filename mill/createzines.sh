@@ -9,11 +9,13 @@ echo $mill
 echo $gsdir
 
 cp zineMill.js data/$mill/zineMill.js
+cp poemMill.js data/$mill/poemMill.js
 
 echo "copied files"
 cd data/$mill
 echo ls data/$mill
 
+node poemMill
 node zineMill
 echo done running zineMill
 

@@ -32,7 +32,7 @@ const punctuations = ["|||","|.|","=>","<=",".^.","#-#","&&","++","_¶",".ä.","
 const getpunctuation  = () => {
 	return punctuations[tools.randominteger(0,punctuations.length)];
 }
-const decorations = ["underline","underline","underline","overline","line-through","line-through","line-through","none","none","none","none","none","none"];
+const decorations = ["underline","underline","overline","line-through","line-through","line-through","none","none","none","none","none","none"];
 const getdecoration  = () => {
 	return decorations[tools.randominteger(0,decorations.length)];
 }
@@ -51,8 +51,8 @@ const markcss = [...Array(20).keys()].reduce( (acc,j) => {
 		color:${getrgbacolor()};
 		font-family: ${getfont()}; 
 		text-decoration: ${getdecoration()};
-		text-decoration-color: var(--red);
-		/*text-decoration-thickness: 0.1em;*/
+		text-decoration-color: var(--gray);
+		/*text-decoration-thickness: 0.2em;*/
 	}
 	`;
 	return acc;
@@ -118,9 +118,9 @@ let head = `
 		text-transform: uppercase;
 	}
 	mark.mark19 {
-		text-shadow: 2px 2px var(--gray);
+		text-shadow: 2px 2px var(--white);
 	}
-	li:first-child:first-letter {
+	ul:first-child li:first-child:first-letter {
 	  color: var(--gray);
 	  float: left;
 	  font-size: 75px;
