@@ -77,7 +77,7 @@ let indexhtml = `
 </head>
 <body class="" >
 <div id="mainflex">
-<main class="expand narrow" id="top">
+<main class="expand medium" id="top">
 <header>
 	<h1>noise factory</h1>
 	<h2>compiled ::: <span class="small">${datetime}</span></h2>
@@ -288,6 +288,7 @@ mills.map( mill=> {
 	<p>
 		<audio loop=true controls="true" id="soundscape" src="${gsurl}/${mill.name}/line_all_thread_all_echo_reverb.mp3" type="audio/mpeg">Your browser does not support the audio tag.</audio>
 	</p>
+	<!--
 	<h5>sound files</h5>
 	<p>
 	<ul>
@@ -295,6 +296,7 @@ mills.map( mill=> {
 		<li><a href="${gsurl}/${mill.name}/line_all_thread_all_echo_reverb.mp3">sound file with reverb & echo</a></li>
 	</ul>
 	</p>
+	-->
 	</div>
 </article>
 <article id="books">
@@ -303,9 +305,18 @@ mills.map( mill=> {
 	</header>
 	<div class="content">
 	<ul>
+		<li><a href="printzine${mill.suffix}.html">html version</a></li>
+		<li><a href="${gsurl}/${mill.name}/printzine.pdf">illustrated book (pdf)</a></li>
+		<li><a href="${gsurl}/${mill.name}/printzinebroadsides.pdf">broadsides (pdf)</a></li>
+		<li><a href="${gsurl}/${mill.name}/printzinefilm.pdf">frames (pdf)</a></li>
+		<li><a href="${gsurl}/${mill.name}/printzinepicturebook.pdf">picture book (pdf)</a></li>
+	</ul>
+	<!--
+	<ul>
 		<li><a href="${gsurl}/${mill.name}/printbook.pdf">illustrated book</a></li>
 		<li><a href="${gsurl}/${mill.name}/printbroadsides.pdf">broadsides</a></li>
 	</ul>
+	-->
 	</div>
 </article>
 <article id="notes">

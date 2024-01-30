@@ -2,19 +2,25 @@ const fs = require("fs");
 const poemfile = `./poems.js`;
 const bookfile = `./book.js`;
 const tools = require("./tools.js");
-const mills = require("./mills.js").reverse();
+const mills = require("./indexTopoFiles.js").reverse();
+const posterfiles = require("./posterfiles.js");
 const dt = new Date();
 const timestamp = dt.getTime();
 const datetime = dt.toDateString();
-const description = "code art ::: algorithmic noise patterns";
-const rooturl = "https://noise.work";
-const gsurl = "https://storage.googleapis.com/noisefactory";
+const description = "code art ::: algorithmic topology patterns";
+const rooturl = "https://topology.work";
+const gsurl = "https://storage.googleapis.com/topologywork";
 const authorurl = "https://mctavish.work";
 const chosenmill = mills[tools.randominteger(0,mills.length)];
+const getposter = milln => {
+	let posters = posterfiles.filter( pf => pf[0]===milln ).map( pf => pf[1] );
+	console.log(`posters = ${posters}`);
+	return posters[tools.randominteger(0,posters.length)];
+};
 let indexhtml = `
 <html>
 <head>
-	<title>noise factory</title>
+	<title>topology</title>
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
 	<meta name="description" content="${description}"/>
@@ -27,7 +33,7 @@ let indexhtml = `
 		{
 			"@context": "http://schema.org",
 			"@type": "WebPage",
-			"name": "noise factory",
+			"name": "topology",
 			"breadcrumb": "core text",
 			"url": "${rooturl}",
 			"description": "${description}",
@@ -49,7 +55,7 @@ let indexhtml = `
 		background-color: var(--warmblack);
 	}
 	body {
-		background-image: url("${gsurl}/${mills[8]}/poster0000_${mills[8].substring(4)}.png"); 
+		background-image: url("${gsurl}/${chosenmill}/${getposter(chosenmill)}"); 
 		background-attachment: fixed;
 		background-size: auto 100%;
 		background-color:var(--warmblack);
@@ -77,18 +83,18 @@ let indexhtml = `
 </head>
 <body class="" >
 <div id="mainflex">
-<main class="expand narrow" id="top">
+<main class="expand medium" id="top">
 <header>
-	<h1>noise factory</h1>
+	<h1>topology</h1>
 	<h2>compiled ::: <span class="small">${datetime}</span></h2>
 </header>
 <nav>
 	<ul>
 		<li><a href="https://mctavish.work/index.html" id="homelink">go to mctavish portfolio</a></li>
-		<li><a href="#videoall">composite video</a></li>
-		<li><a href="#list">noise sequences</a></li>
+		<li><a href="#videoall">composite videos</a></li>
+		<li><a href="#list">topology sequences</a></li>
 		<!--<li><a href="#about">about</a></li>-->
-		<li><a href="#thanks">project support</a></li>
+		<!--<li><a href="#thanks">project support</a></li>-->
 	</ul>
 </nav>
 <div class="screenreader-text">
@@ -96,12 +102,32 @@ let indexhtml = `
 </div>
 <article id="videoall">
 	<header>
-		<h1>composite video</h1>
+		<h1>composite videos</h1>
 	</header>
 	<div id="content">
 	<figure>
 	<div class="vimeowrapper16x9" >
-		<iframe src="https://player.vimeo.com/video/904247004?title=0&amp;byline=0&amp;portrait=0" width="600" height="338"frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+		<iframe src="https://player.vimeo.com/video/904655165?title=0&amp;byline=0&amp;portrait=0" width="600" height="338"frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+	</div>
+	</figure>
+	<figure>
+	<div class="vimeowrapper16x9" >
+		<iframe src="https://player.vimeo.com/video/904655023?title=0&amp;byline=0&amp;portrait=0" width="600" height="338"frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+	</div>
+	</figure>
+	<figure>
+	<div class="vimeowrapper16x9" >
+		<iframe src="https://player.vimeo.com/video/904651641?title=0&amp;byline=0&amp;portrait=0" width="600" height="338"frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+	</div>
+	</figure>
+	<figure>
+	<div class="vimeowrapper16x9" >
+		<iframe src="https://player.vimeo.com/video/904655775?title=0&amp;byline=0&amp;portrait=0" width="600" height="338"frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+	</div>
+	</figure>
+	<figure>
+	<div class="vimeowrapper16x9" >
+		<iframe src="https://player.vimeo.com/video/904655688?title=0&amp;byline=0&amp;portrait=0" width="600" height="338"frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 	</div>
 	</figure>
 	</div>
@@ -109,7 +135,7 @@ let indexhtml = `
 
 <article id="list">
 	<header>
-		<h1>noise sequences</h1>
+		<h1>topology sequences</h1>
 	</header>
 	<div class="content">
 		<p>These are a series of samples/experiments that can be expanded
@@ -119,7 +145,7 @@ let indexhtml = `
 	<ul>`
 indexhtml = indexhtml + mills.map( name=>name.slice(4) ).map( name=>{
 	return	`
-		<li><a href="index${name}.html">noise sequence ${name}</a></li>`;
+		<li><a href="index${name}.html">topology sequence ${name}</a></li>`;
 }).join("");
 indexhtml = indexhtml + ` 
 	</ul>
@@ -146,17 +172,6 @@ indexhtml = indexhtml + `
 	</div>
 </article>
 -->
-<article id="thanks">
-	<header>
-		<h1>project support</h1>
-	</header>
-	<div class="content">
-	<p>Kathy McTavish was a fiscal year 2023 recipient of a Creative Support for Individuals grant from the Minnesota State Arts Board. This activity was made possible by the voters of Minnesota through a grant from the Minnesota State Arts Board, thanks to a legislative appropriation from the arts and cultural heritage fund.</p>
-	<p><a href="https://quiltfactory.work">the quilt factory</a></p>
-	<p>see also: <a href="https://netfactory.work">the net factory</a></p>
-	<p>see also: <a href="https://clockfactory.work">the clock factory</a></p>
-	</div>
-</article>
 </main>
 </div>
 </body>
@@ -174,13 +189,8 @@ mills.map( mill=> {
 		suffix: mill.substring(4),
 		//datetime: dt.toString(),
 		datetime: dt.toDateString(),
-		posters: [
-			`poster0000_${s}.png`,
-			`poster0001_${s}.png`,
-			`poster0002_${s}.png`,
-			`poster0004_${s}.png`,
-		],
-		title: `noise ${s}`,
+		posters: posterfiles.filter( pf => pf[0]===mill ).map( pf => pf[1] ),
+		title: `topology ${s}`,
 		subtitle: `${year}.${month}.${date} ${hour}:${minute}`, 
 		url: `index${s}.html`,
 	}
@@ -226,7 +236,7 @@ mills.map( mill=> {
 		border-right-width: 6px;
 		border-right-color: var(--warmlightwhite);
 		background-color: var(--corebg);
-		background-image: url("${gsurl}/${mill.name}/${mill.posters[tools.randominteger(0,3)]}"); 
+		background-image: url("${gsurl}/${mill.name}/${mill.posters[tools.randominteger(0,mill.posters.length)]}"); 
 		background-attachment: fixed;
 		background-size: auto 100%;
 		}
@@ -245,16 +255,16 @@ mills.map( mill=> {
 	let html = `<html>${head}
 <body class="" >
 <div id="mainflex">
-<main class="expand narrow" id="top">`;
+<main class="expand medium" id="top">`;
 	html = html + `
 <header>
-	<h1>noise sequence</h1>
+	<h1>topology sequence</h1>
 	<h2>created ::: ${mill.datetime}</h2>
 </header>
 <nav>
 	<ul>
-		<li><a href="index.html" id="indexlink">back to noise index</a></li>
-		<li><a href="https://mctavish.work/index.html" id="homelink">go to mctavish portfolio</a></li>
+		<li><a href="index.html" id="indexlink">back to topology index</a></li>
+		<li><a href="https://mctavish.work/" id="homelink">go to mctavish portfolio</a></li>
 		<li><a href="#audio">audio tracks</a></li>
 		<li><a href="#books">books</a></li>
 	</ul>
@@ -288,6 +298,7 @@ mills.map( mill=> {
 	<p>
 		<audio loop=true controls="true" id="soundscape" src="${gsurl}/${mill.name}/line_all_thread_all_echo_reverb.mp3" type="audio/mpeg">Your browser does not support the audio tag.</audio>
 	</p>
+	<!--
 	<h5>sound files</h5>
 	<p>
 	<ul>
@@ -295,16 +306,21 @@ mills.map( mill=> {
 		<li><a href="${gsurl}/${mill.name}/line_all_thread_all_echo_reverb.mp3">sound file with reverb & echo</a></li>
 	</ul>
 	</p>
+	-->
 	</div>
 </article>
 <article id="books">
 	<header>
 		<h1>books</h1>
+		<h2>selected frames</h2>
 	</header>
 	<div class="content">
 	<ul>
-		<li><a href="${gsurl}/${mill.name}/printbook.pdf">illustrated book</a></li>
-		<li><a href="${gsurl}/${mill.name}/printbroadsides.pdf">broadsides</a></li>
+		<li><a href="printzine${mill.suffix}.html">html version</a></li>
+		<li><a href="${gsurl}/${mill.name}/printzine.pdf">illustrated book (pdf)</a></li>
+		<li><a href="${gsurl}/${mill.name}/printzinebroadsides.pdf">broadsides (pdf)</a></li>
+		<li><a href="${gsurl}/${mill.name}/printzinefilm.pdf">frames (pdf)</a></li>
+		<li><a href="${gsurl}/${mill.name}/printzinepicturebook.pdf">picture book (pdf)</a></li>
 	</ul>
 	</div>
 </article>

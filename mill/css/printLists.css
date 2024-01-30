@@ -1,0 +1,111 @@
+ul {
+	margin:0;
+ 	margin-bottom:1em;
+ 	padding:0;
+}
+ul li {
+	list-style-type: none;
+	display: block;
+	font-size: 1em;
+	color: var(--warmblack);
+	font-weight:400;
+	margin:0.05em;
+}
+ul.prose li {
+	display: inline;
+}
+ul.prose li:nth-child(4n+0) {
+	color: var(--warmlightgray);
+	font-weight:500;
+}
+ul.prose li:nth-child(4n+1) {
+	color: var(--warmblack);
+	font-weight:600;
+}
+ul.prose:nth-child(odd) li:nth-child(4n+1) {
+	color: var(--warmgray);
+	font-weight:400;
+}
+ul.prose li:nth-child(4n+2) {
+	color: var(--warmlightgray);
+	font-weight:600;
+}
+ul.prose li:nth-child(4n+3) {
+	color: var(--warmgray);
+	font-weight:400;
+}
+
+ul.prose > li:nth-child(9n+1):after {
+	color: var(--red);
+	content: " _|.";
+	font-weight:600;
+}
+ul.prose:nth-child(even) > li:nth-child(9n+1):after {
+	color: var(--yellow);
+	content: " |..|";
+	font-weight:600;
+}
+ul.prose > li:nth-child(9n+2):after {
+	content: " ..-";
+	color: var(--yellow);
+}
+ul.prose > li:nth-child(9n+3):after {
+	content: " |+|";
+	color: var(--warmblack);
+}
+ul.prose > li:nth-child(9n+4):after {
+	content: " #_#";
+	color: var(--warmlighgray);
+	font-weight:600;
+}
+ul.prose > li:nth-child(9n+5):after {
+	content: " |\|";
+	color: var(--red);
+}
+ul.prose > li:nth-child(9n+6):after {
+	content: " ^..";
+	color: var(--warmgray);
+}
+ul.prose > li:nth-child(9n+7):after {
+	content: " &_&";
+	color: var(--warmblack);
+	font-weight:600;
+}
+ul.prose > li:nth-child(9n+8):after {
+	content: " +0+";
+	color: var(--warmgray);
+}
+ul.prose > li:nth-child(9n+0):after {
+	content: " |||";
+	color: var(--yellow);
+	font-weight:500;
+}
+
+ul.prose > li:nth-child(5n+1):before {
+	content: ".|_ ";
+	font-weight:600;
+	color: var(--warmblack);
+}
+ul.prose:nth-child(even) > li:nth-child(5n+1):before {
+	content: "..|. ";
+	font-weight:600;
+	color: var(--red);
+}
+ul.prose > li:nth-child(5n+2):before {
+	content: "|.| ";
+	color: var(--yellow);
+}
+ul.prose > li:nth-child(5n+3):before {
+	content: "|\| ";
+	color: var(--warmgray);
+	font-weight:600;
+}
+ul.prose > li:nth-child(5n+4):before {
+	content: "+_+ ";
+	color: var(--red);
+}
+ul.prose > li:nth-child(5n+0):before {
+	content: "&=^ ";
+	color: var(--warmlightgray);
+	font-weight:600;
+}
