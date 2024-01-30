@@ -279,7 +279,8 @@ main.narrow {
 	max-width: 600px;
 }
 main.medium {
-  	width: 80%; max-width: 750px;
+	width: 80%;
+	max-width: 750px;
 }
 main.wide {
 	width: 90%; max-width: 900px;
